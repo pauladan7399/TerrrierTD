@@ -9,7 +9,7 @@ public class WaveSpawner : MonoBehaviour
     public Transform spawnPoint;
     public float timeBetweenWaves = 2f; //time between waves, AFTER the wave has been cleared
     private float countdown = 2f;
-
+    public GameObject SelectionUI;
 
     private int waveNumber = 20; //Starting on high wave for testing
 
@@ -24,9 +24,11 @@ public class WaveSpawner : MonoBehaviour
         if (GameObject.FindWithTag("Runner") == null){ 
             countdown -= Time.deltaTime; //counts down when there are no enemies 
             //eventually, this should trigger the tower selection phase, then count down when the player is doen choosing their towers
-            //Wait for player to click done (opposed to putting the player on a timer)
+            //Wait for player to click done (opposed to putting the player on a timer)i
+            SelectionUI.SetActive(false);
         }
         if (countdown <= 0f){
+            SelectionUI.SetActive(true);
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
         }
