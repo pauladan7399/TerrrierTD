@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TowerNode : MonoBehaviour
 {
+    public GameObject TowerMenuUI;
     public Color hoverColor;
     public Vector3 positionOffset;
     private GameObject turret;
@@ -15,11 +17,14 @@ public class TowerNode : MonoBehaviour
         {
             rend = GetComponent<Renderer>();
             StartColor = rend.material.color;
+            TowerMenuUI.SetActive(false);
 
         }
 
     void OnMouseDown ()
     {
+
+        TowerMenuUI.SetActive(true);
         if (turret != null)
         {
             Debug.Log("Can't Build Here!");
