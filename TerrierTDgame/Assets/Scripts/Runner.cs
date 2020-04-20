@@ -7,6 +7,9 @@ public class Runner : MonoBehaviour
     public float speed;
     public int health;
     public int damage;
+    public float slowedTimer = 0f;
+    public float slowDuration = 0f;
+    public bool isSlowed = false;
     private Waypoints Wpoints;
 
     private int waypointIndex;
@@ -23,6 +26,17 @@ public class Runner : MonoBehaviour
         }
     }
 
+    public void Slow(float duration)
+    {
+        slowedTimer = 0f;  //reset slowed timer to zero
+        slowDuration = duration;
+        if (isSlowed == false) //If runner is already slowed, it can't slow down more, but the timer will reset
+        {
+            speed = speed / 2;
+            isSlowed = true;
+        }
+    }
+
     void Die(){
         Destroy(gameObject);
         //add in cool effects
@@ -30,6 +44,15 @@ public class Runner : MonoBehaviour
 
     void Update()
     {
+        //if (isSlowed == true)
+        //{
+        //    slowedTimer += Time.deltaTime;
+        //}
+        //if (slowedTimer >= slowDuration) //Once timer is up, runner will return to normal speed
+        //{
+        //    isSlowed = false;
+        //    speed = speed * 2;
+        //}
         transform.position = Vector3.MoveTowards(transform.position, Wpoints.waypoints[waypointIndex].position, speed * Time.deltaTime); //moving the sprite
 
         Vector3 dir = Wpoints.waypoints[waypointIndex].position - transform.position; //to orient the runner sprite

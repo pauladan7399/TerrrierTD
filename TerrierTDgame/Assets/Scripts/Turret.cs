@@ -6,10 +6,16 @@ public class Turret : MonoBehaviour
 {
     public Transform target;
 
-    [Header("Attributes")]
+    [Header("General")]
     public float range = 5f;
     public float fireRate = 5f;
     private float fireCountdown = 0f;
+
+    //[Header("Use Bullets (default)")]
+
+
+    //[Header("Use Laser")]         //To be used once we implement laser turret
+    //public int damageOverTime = 10f;
 
     [Header("Unity Setup Fields")]
     public string runnerTag = "Runner";

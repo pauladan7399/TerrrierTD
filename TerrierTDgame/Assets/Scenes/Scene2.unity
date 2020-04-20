@@ -3124,7 +3124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a96c76b0cd862d74486a2a8029f32646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standardTurretPrefab: {fileID: 4927760238706368899, guid: 6dc3c443d995a624498a40fd7401b13e,
+  standardTurretPrefab: {fileID: 7129710741329256908, guid: d3b835906c7f5534d91160440773262c,
     type: 3}
 --- !u!4 &2106517919
 Transform:

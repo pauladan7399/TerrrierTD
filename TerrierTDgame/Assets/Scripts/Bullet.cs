@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     private Transform target;
     public float speed = 35f;
     public float splashRadius = 0f;
+    public float slowEffectDuration = 0f;
     public int damage = 1;
     public GameObject impactEffect;
     //public Runner runner;
@@ -68,8 +69,13 @@ public class Bullet : MonoBehaviour
             }
         }
     }
+
     void DoDamage(Transform runner){
         Runner r = runner.GetComponent<Runner>();
         r.TakeDamage(damage);
+        if (slowEffectDuration > 0)
+        {
+            r.Slow(slowEffectDuration);
+        }
     }
 }
