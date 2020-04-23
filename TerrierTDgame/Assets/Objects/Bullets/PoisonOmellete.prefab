@@ -94,8 +94,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6dc02ca67297244fa77ea4fa5771a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
-  splashRadius: 2
+  speed: 15
+  splashRadius: 1
+  slowEffectDuration: 0
+  poisonEffectDamage: 10
   damage: 1
   impactEffect: {fileID: 4458240161424192078, guid: b91ce191a962b2f4fbe5b227a095c319,
     type: 3}

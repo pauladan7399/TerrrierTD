@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     public float speed = 35f;
     public float splashRadius = 0f;
     public float slowEffectDuration = 0f;
+    public float poisonEffectDamage = 0f;
     public int damage = 1;
     public GameObject impactEffect;
     //public Runner runner;
@@ -65,7 +66,6 @@ public class Bullet : MonoBehaviour
             if (collider.tag == "Runner")
             {
                 DoDamage(collider.transform);
-                Debug.Log("hit!");
             }
         }
     }
@@ -74,8 +74,8 @@ public class Bullet : MonoBehaviour
         Runner r = runner.GetComponent<Runner>();
         r.TakeDamage(damage);
         if (slowEffectDuration > 0)
-        {
-            r.Slow(slowEffectDuration);
-        }
+            r.StartSlow(slowEffectDuration);
+        if (poisonEffectDamage > 0)
+            r.StartPoison(poisonEffectDamage);
     }
 }

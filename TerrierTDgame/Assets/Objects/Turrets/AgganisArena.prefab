@@ -96,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   range: 5
-  fireRate: 1
+  fireRate: 0.5
   runnerTag: Runner
   bulletPrefab: {fileID: 8069112048106974285, guid: c847034142f445946b1813ad8cbf14dc,
     type: 3}

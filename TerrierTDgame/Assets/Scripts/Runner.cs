@@ -7,16 +7,17 @@ public class Runner : MonoBehaviour
     public float speed;
     public int health;
     public int damage;
-    public float slowedTimer = 0f;
-    public float slowDuration = 0f;
     public bool isSlowed = false;
+    public bool isPoisoned = false;
     private Waypoints Wpoints;
+    public SpriteRenderer sprite;
 
     private int waypointIndex;
 
     void Start()
     {
         Wpoints = GameObject.FindGameObjectWithTag("Waypoints").GetComponent<Waypoints>();
+        sprite = GetComponent<SpriteRenderer>(); //accessing SpriteRenderer
     }
 
     public void TakeDamage(int amount){
@@ -26,14 +27,43 @@ public class Runner : MonoBehaviour
         }
     }
 
-    public void Slow(float duration)
+    public void StartSlow(float duration)
     {
-        slowedTimer = 0f;  //reset slowed timer to zero
-        slowDuration = duration;
-        if (isSlowed == false) //If runner is already slowed, it can't slow down more, but the timer will reset
+        StartCoroutine(Slow(duration));
+    }
+    public IEnumerator Slow(float duration)
+    {
+        sprite.color = new Color(0, 1, 1, 1); //Changes color of sprite when slowed
+        if (isSlowed == false) //If runner is already slowed, it can't slow down more
         {
             speed = speed / 2;
             isSlowed = true;
+            yield return new WaitForSeconds(duration);
+            sprite.color = new Color(1, 1, 1, 1); //Changes color back
+            speed = speed * 2; //set speed back to normal
+            isSlowed = false;
+        }
+    }
+
+    public void StartPoison(float poisonDamage)
+    {
+        StartCoroutine(Poison(poisonDamage));
+    }
+    public IEnumerator Poison(float poisonDamage)
+    {
+        if (isPoisoned == false) //If runner is already slowed, it can't slow down more
+        {
+            isPoisoned = true;
+            Debug.Log("POISONED");
+            for (float i = 0; i <= poisonDamage; i++)
+            {
+                yield return new WaitForSeconds(0.4f);
+                sprite.color = new Color(0, 1, 0, 1); //Changes color
+                TakeDamage(1);
+                yield return new WaitForSeconds(0.1f);
+                sprite.color = new Color(1, 1, 1, 1); //Changes color back
+            }
+            isPoisoned = false;
         }
     }
 
@@ -44,15 +74,6 @@ public class Runner : MonoBehaviour
 
     void Update()
     {
-        //if (isSlowed == true)
-        //{
-        //    slowedTimer += Time.deltaTime;
-        //}
-        //if (slowedTimer >= slowDuration) //Once timer is up, runner will return to normal speed
-        //{
-        //    isSlowed = false;
-        //    speed = speed * 2;
-        //}
         transform.position = Vector3.MoveTowards(transform.position, Wpoints.waypoints[waypointIndex].position, speed * Time.deltaTime); //moving the sprite
 
         Vector3 dir = Wpoints.waypoints[waypointIndex].position - transform.position; //to orient the runner sprite
