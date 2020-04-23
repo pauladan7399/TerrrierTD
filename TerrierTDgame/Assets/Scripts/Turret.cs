@@ -85,8 +85,17 @@ public class Turret : MonoBehaviour
 
     void Shoot () 
     {
+        GameObject baseBullet = (GameObject)Instantiate(bulletPrefab); //creating base bullet to reference 
+        Bullet BB = baseBullet.GetComponent<Bullet>();
+        
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Bullet bullet = bulletGO.GetComponent<Bullet>();
+        Bullet bullet = bulletGO.GetComponent<Bullet>(); //Actual Bullet Object being used
+        if (level == 2) {
+            bullet.damage = BB.damage*1.2f; //Upgrading damage to Level 2
+        }
+        if(level == 3) {
+            bullet.damage = BB.damage*1.45f; //Upgrading damage to level 3
+        }
         
         if (bullet != null)
         {

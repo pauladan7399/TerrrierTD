@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
     public float splashRadius = 0f;
     public float slowEffectDuration = 0f;
     public float poisonEffectDamage = 0f;
-    public int damage = 1;
+    public float damage = 1;
     public GameObject impactEffect;
     //public Runner runner;
 

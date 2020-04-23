@@ -5,7 +5,7 @@ using UnityEngine;
 public class Runner : MonoBehaviour
 {
     public float speed;
-    public int health;
+    public float health;
     public int damage;
     public bool isSlowed = false;
     public bool isPoisoned = false;
@@ -20,7 +20,7 @@ public class Runner : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>(); //accessing SpriteRenderer
     }
 
-    public void TakeDamage(int amount){
+    public void TakeDamage(float amount){
         health -= amount;
         if (health <= 0){
             Die();

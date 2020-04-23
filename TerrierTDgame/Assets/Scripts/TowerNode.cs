@@ -25,8 +25,8 @@ public class TowerNode : MonoBehaviour
             Turret currentTurret = turret.GetComponent<Turret>(); //This is the currently placed tower
             GameObject selectedTurret = BuildManager.instance.GetTurretToBuild();
             Turret selectedT = selectedTurret.GetComponent<Turret>(); //This is the prefab tower selected in between rounds
+
             if (currentTurret.getId() == selectedT.getId() && currentTurret.level <= 2) {
-                Debug.Log("WE ARE UPGRADING!");
                 currentTurret.Upgrade();
             }
             if (currentTurret.getId() == selectedT.getId() && currentTurret.level > 2) {
@@ -37,7 +37,7 @@ public class TowerNode : MonoBehaviour
         }
         GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
         turret = (GameObject)Instantiate(turretToBuild, transform.position +positionOffset, transform.rotation);
-        //Destroy(gameObject);
+        rend.enabled = false;
     }
     
    void OnMouseEnter ()
