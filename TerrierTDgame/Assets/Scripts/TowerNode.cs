@@ -35,9 +35,11 @@ public class TowerNode : MonoBehaviour
 
             return;
         }
-        GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
-        turret = (GameObject)Instantiate(turretToBuild, transform.position +positionOffset, transform.rotation);
-        rend.enabled = false;
+            if (BuildManager.instance.GetTurretToBuild() != null ) {
+            GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
+            turret = (GameObject)Instantiate(turretToBuild, transform.position +positionOffset, transform.rotation);
+            rend.enabled = false;
+        }
     }
     
    void OnMouseEnter ()
