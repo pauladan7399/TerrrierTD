@@ -5,11 +5,14 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     public Transform target;
+    public SpriteRenderer sprite;
 
     [Header("General")]
     public float range = 5f;
     public float fireRate = 5f;
     private float fireCountdown = 0f;
+    public int id = 1;
+    public int level = 1;
 
     //[Header("Use Bullets (default)")]
 
@@ -26,6 +29,7 @@ public class Turret : MonoBehaviour
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     void UpdateTarget () 
@@ -94,4 +98,24 @@ public class Turret : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void Upgrade() {
+        level++;
+        float up = 1.2f;
+        if (level == 2) {
+            sprite.color = new Color(0.65f, 0.85f, 1f, 1f); //Blueish silver (level 2)
+        }
+        if (level ==3) {
+            sprite.color = new Color(1f, 0.9f, 0.1f, 1f); //color for gold (level 3)
+        }
+        range = range*up; //increasing range of tower
+        fireRate = fireRate*up; //increasing firerate
+        
+        
+    }
+
 }

@@ -97,6 +97,7 @@ MonoBehaviour:
   target: {fileID: 0}
   range: 3
   fireRate: 5
+  id: 2
   runnerTag: Runner
   bulletPrefab: {fileID: 1754985440553830284, guid: 265f2b6997bfc024594cd3ab741909fb,
     type: 3}

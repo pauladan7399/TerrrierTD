@@ -97,6 +97,7 @@ MonoBehaviour:
   target: {fileID: 0}
   range: 5
   fireRate: 5
+  id: 6
   runnerTag: Runner
   bulletPrefab: {fileID: 0}
   firePoint: {fileID: 0}
