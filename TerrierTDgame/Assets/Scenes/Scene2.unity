@@ -3124,7 +3124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a96c76b0cd862d74486a2a8029f32646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standardTurretPrefab: {fileID: 608396862305946457, guid: a4f7de0bccb3ed4449b0a2123a5d60a7,
+  standardTurretPrefab: {fileID: 4927760238706368899, guid: 6dc3c443d995a624498a40fd7401b13e,
     type: 3}
 --- !u!4 &2106517919
 Transform:
@@ -3179,6 +3179,12 @@ MonoBehaviour:
   eaglePrefab: {fileID: 5497959401593116887, guid: 8e31464f5c186954cacf061929484749,
     type: 3}
   beaverPrefab: {fileID: 6967217569633031985, guid: 97a54bd433a5ad74e93d69e4a6df0ee4,
+    type: 3}
+  lepPrefab: {fileID: 2011451315903255953, guid: 138916e3e1623d34e9fb12695c657496,
+    type: 3}
+  bulldogPrefab: {fileID: 4735824374410922379, guid: ba7b16ef23a7faa46a4c53de80b6db26,
+    type: 3}
+  lionPrefab: {fileID: 7697936281461246707, guid: 90ff413816e2c444598180080d6e7d28,
     type: 3}
   spawnPoint: {fileID: 3598288452405874446, guid: 5c0e7dbec9cb3a84bb01df53a32e3ff1,
     type: 3}

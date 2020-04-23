@@ -6,6 +6,9 @@ public class WaveSpawner : MonoBehaviour
 {
     public Transform eaglePrefab;
     public Transform beaverPrefab;
+    public Transform lepPrefab;
+    public Transform bulldogPrefab;
+    public Transform lionPrefab;
     public Transform spawnPoint;
     public float timeBetweenWaves = 2f; //time between waves, AFTER the wave has been cleared
     private float countdown = 2f;
@@ -44,13 +47,25 @@ public class WaveSpawner : MonoBehaviour
     }
 
     void SpawnRunner () {
-        if (waveNumber % 2 == 0)
+        if (waveNumber % 5 == 0)
         {
             Instantiate(beaverPrefab, spawnPoint.position, spawnPoint.rotation);
         }
-        else
+        else if (waveNumber % 5 == 1)
         {
             Instantiate(eaglePrefab, spawnPoint.position, spawnPoint.rotation);
+        }
+        else if (waveNumber % 5 == 2)
+        {
+            Instantiate(lepPrefab, spawnPoint.position, spawnPoint.rotation);
+        }
+        else if (waveNumber % 5 == 3)
+        {
+            Instantiate(lionPrefab, spawnPoint.position, spawnPoint.rotation);
+        }
+        else if (waveNumber % 5 == 4)
+        {
+            Instantiate(bulldogPrefab, spawnPoint.position, spawnPoint.rotation);
         }
     }
 }
