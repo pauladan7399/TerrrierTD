@@ -12,19 +12,21 @@ public class RandomSelection : MonoBehaviour
     public GameObject thirdTower;
     private float selectionTimer = 10f;
     public GameObject SelectionUI;
-    
+           
     void Update()
     {
-        
+        WaveSpawner.spawnchecker = 0;
+        Debug.Log("Selection is called ");
         selectionTimer -= Time.deltaTime;
         SelectionTimerText.text = Mathf.Round(selectionTimer).ToString();
         if (selectionTimer <= 0)
         {
             //select a random tower and exit the scene
-            SelectionUI.SetActive(false);   
+             
             selectionTimer = 10f;
-            
-
+            WaveSpawner.spawnchecker = 1;
+            Debug.Log("Setting bool");
+            SelectionUI.SetActive(false);
         }
     }
 
@@ -71,4 +73,8 @@ public class RandomSelection : MonoBehaviour
 
         // And then scripts to select prefabs buildManager()
     }
+
+ 
+    
+
 }

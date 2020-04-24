@@ -28,7 +28,7 @@ public class GameOver : MonoBehaviour
         }
     }
 
-    void EndGame()
+   public void EndGame()
     {
         Debug.Log("You failed college!");
         sprite.color = new Color(1, 1, 1, 1);

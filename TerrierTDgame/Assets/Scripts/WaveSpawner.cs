@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -10,9 +11,13 @@ public class WaveSpawner : MonoBehaviour
     public Transform bulldogPrefab;
     public Transform lionPrefab;
     public Transform spawnPoint;
-    public float timeBetweenWaves = 2f; //time between waves, AFTER the wave has been cleared
-    private float countdown = 2f;
+    public float timeBetweenWaves = 5f; //time between waves, AFTER the wave has been cleared
+    private float countdown = 5f;
     public GameObject SelectionUI;
+
+    //private float selectionTimer = 10f;
+    //[SerializeField] Text SelectionTimerText2;
+    public static int spawnchecker = 0;
 
     private int waveNumber = 20; //Starting on high wave for testing
 
@@ -24,15 +29,31 @@ public class WaveSpawner : MonoBehaviour
             countdown = timeBetweenWaves;
         } */
 
-        if (GameObject.FindWithTag("Runner") == null){ 
+        if (GameObject.FindWithTag("Runner") != null)
+        {
+            SelectionUI.SetActive(false);
+        }
+        if (GameObject.FindWithTag("Runner") == null && SelectionUI.activeSelf == false){ 
             countdown -= Time.deltaTime; //counts down when there are no enemies 
             //eventually, this should trigger the tower selection phase, then count down when the player is doen choosing their towers
             //Wait for player to click done (opposed to putting the player on a timer)i
-            SelectionUI.SetActive(false);
+            
+           
         }
         if (countdown <= 0f){
             SelectionUI.SetActive(true);
-            StartCoroutine(SpawnWave());
+
+            Debug.Log("Activating Selection ");
+            Debug.Log("stupid code");
+            //selectionTimer -= Time.deltaTime;
+           // SelectionTimerText2.text = Mathf.Round(selectionTimer).ToString();
+          
+            if (CheckTab())
+            {
+                Debug.Log("Spawning runners ");
+                StartCoroutine(SpawnWave());
+                spawnchecker = 0;
+            }
             countdown = timeBetweenWaves;
         }
     }
@@ -67,5 +88,14 @@ public class WaveSpawner : MonoBehaviour
         {
             Instantiate(bulldogPrefab, spawnPoint.position, spawnPoint.rotation);
         }
+    }
+
+    bool CheckTab() //This is to do bool and check when to spawn
+    {
+        if (spawnchecker == 0) 
+            return false;
+        else 
+            return true;
+
     }
 }
