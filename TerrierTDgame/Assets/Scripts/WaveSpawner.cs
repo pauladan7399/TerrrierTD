@@ -14,6 +14,7 @@ public class WaveSpawner : MonoBehaviour
     public float timeBetweenWaves = 5f; //time between waves, AFTER the wave has been cleared
     private float countdown = 5f;
     public GameObject SelectionUI;
+    public Text waveText;
 
     //private float selectionTimer = 10f;
     //[SerializeField] Text SelectionTimerText2;
@@ -60,6 +61,7 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave () {
         waveNumber++;
+        waveText.text = "Wave " + waveNumber.ToString();
         for (int i=0; i<waveNumber; i++) {
             SpawnRunner();
             yield return new WaitForSeconds(0.2f);

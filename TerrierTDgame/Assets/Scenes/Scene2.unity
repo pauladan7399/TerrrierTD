@@ -4681,6 +4681,7 @@ MonoBehaviour:
     type: 3}
   timeBetweenWaves: 2
   SelectionUI: {fileID: 1976516175}
+  waveText: {fileID: 910202230}
 --- !u!1 &2116488415
 GameObject:
   m_ObjectHideFlags: 0
