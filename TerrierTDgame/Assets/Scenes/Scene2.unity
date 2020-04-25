@@ -2502,7 +2502,7 @@ GameObject:
   - component: {fileID: 983792103}
   - component: {fileID: 983792102}
   m_Layer: 5
-  m_Name: Tower 2
+  m_Name: secondTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3675,7 +3675,7 @@ GameObject:
   - component: {fileID: 1596402445}
   - component: {fileID: 1596402444}
   m_Layer: 5
-  m_Name: Tower 1
+  m_Name: firstTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3688,7 +3688,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1596402442}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4381,10 +4381,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectionTimerText: {fileID: 1175369173}
-  firstTower: {fileID: 0}
-  secondTower: {fileID: 0}
-  thirdTower: {fileID: 0}
+  Tower1: {fileID: 3807422085471958377, guid: ee874ed2ed9c5e34a9fb3ad0ad545f93, type: 3}
+  Tower2: {fileID: 6579170979700327519, guid: 01e763bd51a40b0469347687531894d8, type: 3}
+  Tower3: {fileID: 7899958163717601134, guid: 5a71e82e87a920b4db20ea37f30be7dc, type: 3}
+  Tower4: {fileID: 4927760238706368899, guid: 6dc3c443d995a624498a40fd7401b13e, type: 3}
+  Tower5: {fileID: 6124999592633142141, guid: d10edea5e9d17ac419d49bf3e9c5b76c, type: 3}
+  Tower6: {fileID: 3962840624007687142, guid: 5152fcd95ddfacb4d8d9478bd5905104, type: 3}
+  Tower7: {fileID: 608396862305946457, guid: a4f7de0bccb3ed4449b0a2123a5d60a7, type: 3}
+  Tower8: {fileID: 7129710741329256908, guid: d3b835906c7f5534d91160440773262c, type: 3}
+  Sprite1: {fileID: 21300000, guid: d474e80c770caa84ea255eb7d7dde0fc, type: 3}
+  Sprite2: {fileID: 21300000, guid: f8064239f65453248ac69dffcf8de244, type: 3}
+  Sprite3: {fileID: 21300000, guid: 3e1cc935dbeab544ea5e2cf3dc579ef5, type: 3}
+  Sprite4: {fileID: 21300000, guid: a5c06d56b82ed36439c6e39dd98ba438, type: 3}
+  Sprite5: {fileID: 21300000, guid: 0149af9dd33c6754eae8aab238c0053a, type: 3}
+  Sprite6: {fileID: 21300000, guid: 91aa7d56a3f2e494ca7f2db27867e704, type: 3}
+  Sprite7: {fileID: 21300000, guid: a21b56f7b14148a4ba259e683510fef5, type: 3}
+  Sprite8: {fileID: 21300000, guid: c9344d87ef4974b4985f6e4988ccc9bc, type: 3}
+  Button1: {fileID: 1596402444}
+  Button2: {fileID: 983792102}
+  Button3: {fileID: 2120047830}
   SelectionUI: {fileID: 1976516175}
+  BuildTower: {fileID: 2106517917}
 --- !u!114 &1976516181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4794,7 +4811,7 @@ GameObject:
   - component: {fileID: 2120047831}
   - component: {fileID: 2120047830}
   m_Layer: 5
-  m_Name: Tower 3
+  m_Name: thirdTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
