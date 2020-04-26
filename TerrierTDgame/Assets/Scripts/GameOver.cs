@@ -32,10 +32,10 @@ public class GameOver : MonoBehaviour
     {
         Debug.Log("You failed college!");
         sprite.color = new Color(1, 1, 1, 1);
-        Invoke("Restart", restartDelay);
+        Invoke("Restart", 5);
     }
     void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("StartScreen");
     }
 }
